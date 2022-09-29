@@ -526,7 +526,7 @@ func expandNodeConfig(v interface{}) *container.NodeConfig {
 					gpuSharingConfig := data["gpu_sharing_config"].([]interface{})[0].(map[string]interface{})
 					guestAcceleratorConfig.GpuSharingConfig = &container.GPUSharingConfig{
 						GpuSharingStrategy: gpuSharingConfig["gpu_sharing_strategy"].(string),
-						MaxSharedClientsPerGpu: gpuSharingConfig["max_shared_clients_per_gpu"].(int),
+						MaxSharedClientsPerGpu: int64(gpuSharingConfig["max_shared_clients_per_gpu"].(int)),
 					}
 				}
 			}
