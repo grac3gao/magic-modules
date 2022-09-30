@@ -838,8 +838,8 @@ func flattenContainerGuestAccelerators(c []*container.AcceleratorConfig) []map[s
 			"gpu_partition_size": accel.GpuPartitionSize,
 		}
 		if accel.GpuSharingConfig != nil {
-			accelerator["gpu_sharing_config"] = []map[string]interface{}{
-				"gpu_sharing_config": accel.GpuSharingConfig.GpuSharingStrategy,
+			accelerator["gpu_sharing_config"] = map[string]interface{}{
+				"gpu_sharing_strategy": accel.GpuSharingConfig.GpuSharingStrategy,
 				"max_shared_clients_per_gpu": accel.GpuSharingConfig.MaxSharedClientsPerGpu,
 			}
 		}
